@@ -10,7 +10,7 @@ REGOLE
 // JS Basics
 
 /* ESERCIZIO A
-  Crea una variabile chiamata "sum" e assegnaci il risultato della somma tra i valori 10 e 20.
+  Crea una letiabile chiamata "sum" e assegnaci il risultato della somma tra i valori 10 e 20.
 */
 console.log("\nEsercizio A\n");
 let sum = 10 + 20;
@@ -130,7 +130,7 @@ function deleteOne(string, bool) {
 console.log("\nEsercizio 5\n");
 
 function onlyLetters(frase) {
-  let arrayDiLettere = frase.split("");
+  let arrayDiLettere = frase.split("/");
   arrayFinale = [];
   arrayDiLettere.forEach((lettera) => {
     if (isNaN(lettera)) {
@@ -141,10 +141,10 @@ function onlyLetters(frase) {
   });
   return arrayFinale.join("");
 }
+console.log(onlyLetters("I have 4 dogs"));
 //   let x = string.replace(/[0-9]?/g, ""); //replace metodo per le strighe, global source
 //   return x;
 // }
-console.log(onlyLetters("I have 4 dogs"));
 
 // /* ESERCIZIO 6
 //   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
@@ -222,9 +222,9 @@ console.log("\nEsercizio 9\n");
 function howManyDays(date) {
   let currentDate = new Date();
   let timeDifference = currentDate.getTime() - date.getTime();
-  return Math.floor(timeDifference / (100 * 60 * 60 * 24));
+  return Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 }
-console.log(howManyDays(new Date(2022, 11, 10)));
+console.log(howManyDays(new Date(2021, 11, 17)));
 
 // /* ESERCIZIO 10
 //   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
@@ -368,13 +368,14 @@ const movies = [
 //   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
 //   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 // */
+
 console.log("\nEsercizio 11\n");
-let io = [(name = "Daniele"), (cognome = "Testi"), (age = 20)];
+let io = { name: "Daniele", cognome: "Testi", age: 20 };
 const deleteProp = (obj, stringa) => {
   delete obj[stringa];
   return obj;
 };
-// console.log(deleteProp(io, "name"));
+console.log(deleteProp(io, "name"));
 
 // /* ESERCIZIO 12
 //   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
@@ -386,7 +387,6 @@ let data = 0;
 let filmNuovo = "";
 function newestMovie() {
   for (let i = 0; i < movies.length; i++) {
-    // data = parseInt(movies[i]);
     if (parseInt(movies[i].Year) > anno) {
       anno = parseInt(movies[i].Year);
       filmNuovo = movies[i].Title;
@@ -394,7 +394,7 @@ function newestMovie() {
   }
   console.log(filmNuovo);
 }
-// newestMovie();
+newestMovie();
 
 // /* ESERCIZIO 13
 //   Scrivi una funzione chiamata "countMovies" che ritorna il numero di film contenuti nell'array "movies" fornito.
@@ -466,13 +466,12 @@ console.log("\nEsercizio 17\n");
 
 function searchByTitle(stringa) {
   for (let i = 0; i < movies.length; i++) {
-    let titolo = movies[i].Title;
-    if (titolo === stringa) {
-      console.log(movies[i]);
+    if (movies[i].Title.includes(stringa)) {
+      console.log(movies[i].Title);
     }
   }
 }
-searchByTitle("The Lord of the Rings");
+searchByTitle("Lord");
 
 // /* ESERCIZIO 18
 //   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
@@ -482,19 +481,16 @@ searchByTitle("The Lord of the Rings");
 console.log("\nEsercizio 18\n");
 let match = [];
 let unmatch = [];
-let k;
 function searchAndDivide(stringa) {
   for (let i = 0; i < movies.length; i++) {
-    // let titolo =;
     if (movies[i].Title.includes(stringa)) {
-      match[i] = movies[i];
-    } else unmatch[i] = movies[i];
+      match.push(movies[i].Title);
+    }
+    unmatch.push(movies[i].Title);
   }
-  console.log(match);
-  console.log(unmatch);
 
-  // console.log("FILM CHE CONTENGONO " + stringa + " : " + match);
-  // console.log("FILM CHE NON CONTENGONO " + stringa + " : " + unmatch);
+  console.log("FILM CHE CONTENGONO " + stringa + " SONO " + match);
+  console.log("FILM CHE NON CONTENGONO " + stringa + " SONO " + unmatch);
 }
 searchAndDivide("Avenger");
 
@@ -519,30 +515,63 @@ removeIndex(14);
 
 console.log("\nEsercizio 20\n");
 
+const searchId = () => {
+  const container = document.getElementById("#container");
+};
+
 // /* ESERCIZIO 21
 //   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 // */
+
+const tag = () => {
+  const allTd = document.querySelectorAll("body td");
+};
 
 // /* ESERCIZIO 22
 //   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 // */
 
+const print = () => {
+  console.log(td.forEach((elem) => elem.innerText));
+};
+
 // /* ESERCIZIO 23
 //   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 // */
+
+const changeA = () => {
+  const a = document.querySelectorAll("body a");
+  a.forEach((elem) => (elem.style.backgroundColor = "red"));
+};
 
 // /* ESERCIZIO 24
 //   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 // */
 
+const addElement = () => {
+  const ul = document.getElementById("#myList");
+  const li = document.createElement("li");
+  li.innerText = "new li";
+  ul.appendChild(li);
+};
+
 // /* ESERCIZIO 25
 //   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 // */
+
+const toEmpty = () => {
+  const ul = document.getElementById("#myList");
+  ul.toEmpty();
+};
 
 // /* ESERCIZIO 26
 //   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 // */
 
+const addClass = () => {
+  const tr = document.querySelectorAll("body tr");
+  tr.classlist.add("test");
+};
 // // [EXTRA] JS Avanzato
 
 // /* ESERCIZIO 27
@@ -556,6 +585,24 @@ console.log("\nEsercizio 20\n");
 //   ***
 
 // */
+function halfTree(num) {
+  let aste = "*";
+  let txt = aste;
+  for (i = 0; i <= num; i++) {
+    txt = "";
+    for (j = i; j < num; j++) {
+      txt = aste;
+    }
+    console.log(txt);
+  }
+}
+halfTree(4);
+// for (let i = 1; i < num; i++) {
+//   console.log(i);
+//   for (let j = 0; j <= i; j++) {
+//     console.log(j);
+//   }
+// }
 
 // /* ESERCIZIO 28
 //   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -569,9 +616,47 @@ console.log("\nEsercizio 20\n");
 
 // */
 
+function tree(num) {
+  let txt = "";
+  for (i = 1; i <= num; i++) {
+    txt = "";
+    for (j = i; j < num; j++) {
+      txt += " ";
+    }
+    for (k = 0; k < i * 2 - 1; k++) {
+      txt += "*";
+    }
+    console.log(txt);
+  }
+}
+tree(5);
 // /* ESERCIZIO 29
 //   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 // */
+
+function isItPrime(num) {
+  // if (num % 2 !== 0) {
+  //   console.log("primo");
+  // } else if (num % 3 !== 0) {
+  //   console.log("primo");
+  // }
+
+  if (
+    // num % 0 === 0 &&
+    // num % 1 === num &&
+    num % 2 !== 1 &&
+    num % 3 !== 1 &&
+    num % 4 !== 1 &&
+    num % 5 !== 1 &&
+    num % 6 !== 1 &&
+    num % 7 !== 1 &&
+    num % 8 !== 1 &&
+    num % 19 !== 1 &&
+    num % 23 !== 1
+  )
+    console.log("primo");
+}
+isItPrime(8);
 
 // /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
