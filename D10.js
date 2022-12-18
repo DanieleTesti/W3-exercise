@@ -47,19 +47,23 @@ me.pop();
 
 console.log("\nEsercizio E\n");
 
-me.push("skills");
-// console.log(me);
+me.skills = ["js", "html", "css", "react"];
+console.log(me);
 
 /* ESERCIZIO F
   Crea un pezzo di codice per aggiungere un nuovo elemento all'array "skills" contenuto nell'oggetto "me".
 */
 
 console.log("\nEsercizio F\n");
-// me.skills.push("ciao");  NON VAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+me.skills.push("ciao");
+console.log(me);
 
 /* ESERCIZIO G
   Crea un pezzo di codice per rimuovere programmaticamente l'ultimo elemento dall'array "skills" contenuto nell'oggetto "me".
 */
+
+me.skills.pop();
+console.log(me);
 
 // Funzioni
 
@@ -142,9 +146,6 @@ function onlyLetters(frase) {
   return arrayFinale.join("");
 }
 console.log(onlyLetters("I have 4 dogs"));
-//   let x = string.replace(/[0-9]?/g, ""); //replace metodo per le strighe, global source
-//   return x;
-// }
 
 // /* ESERCIZIO 6
 //   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
@@ -164,7 +165,6 @@ console.log("\nEsercizio 7\n");
 function whatDayIsIt() {
   let today = new Date();
   let day = today.getDay();
-  // console.log(today.toDateString());
   switch (day) {
     case 0:
       console.log("Domenica");
@@ -585,24 +585,19 @@ const addClass = () => {
 //   ***
 
 // */
+
+console.log("\n Esercizio 27\n");
 function halfTree(num) {
-  let aste = "*";
-  let txt = aste;
-  for (i = 0; i <= num; i++) {
-    txt = "";
-    for (j = i; j < num; j++) {
-      txt = aste;
+  var output = "";
+  for (let i = 1; i <= num; i++) {
+    for (let j = 1; j <= i; j++) {
+      output += "*";
     }
-    console.log(txt);
+    console.log(output);
+    output = "";
   }
 }
-halfTree(4);
-// for (let i = 1; i < num; i++) {
-//   console.log(i);
-//   for (let j = 0; j <= i; j++) {
-//     console.log(j);
-//   }
-// }
+halfTree(7);
 
 // /* ESERCIZIO 28
 //   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
@@ -615,6 +610,7 @@ halfTree(4);
 //   *****
 
 // */
+console.log("\n Esercizio 28\n");
 
 function tree(num) {
   let txt = "";
@@ -633,145 +629,20 @@ tree(5);
 // /* ESERCIZIO 29
 //   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 // */
-
+console.log("\n Exercise 29");
 function isItPrime(num) {
+  let array = [];
   // if (num % 2 !== 0) {
   //   console.log("primo");
   // } else if (num % 3 !== 0) {
   //   console.log("primo");
   // }
 
-  if (
-    // num % 0 === 0 &&
-    // num % 1 === num &&
-    num % 2 !== 1 &&
-    num % 3 !== 1 &&
-    num % 4 !== 1 &&
-    num % 5 !== 1 &&
-    num % 6 !== 1 &&
-    num % 7 !== 1 &&
-    num % 8 !== 1 &&
-    num % 19 !== 1 &&
-    num % 23 !== 1
-  )
-    console.log("primo");
+  for (let i = 2; num > i; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return num > 1;
 }
-isItPrime(8);
-
-// /* Questo array viene usato per gli esercizi. Non modificarlo. */
-
-// const movies = [
-//   {
-//     Title: "The Lord of the Rings: The Fellowship of the Ring",
-//     Year: "2001",
-//     imdbID: "tt0120737",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
-//   },
-
-//   {
-//     Title: "The Lord of the Rings: The Return of the King",
-//     Year: "2003",
-//     imdbID: "tt0167260",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "The Lord of the Rings: The Two Towers",
-//     Year: "2002",
-//     imdbID: "tt0167261",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BNGE5MzIyNTAtNWFlMC00NDA2LWJiMjItMjc4Yjg1OWM5NzhhXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "Lord of War",
-//     Year: "2005",
-//     imdbID: "tt0399295",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BMTYzZWE3MDAtZjZkMi00MzhlLTlhZDUtNmI2Zjg3OWVlZWI0XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "Lords of Dogtown",
-//     Year: "2005",
-//     imdbID: "tt0355702",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BNDBhNGJlOTAtM2ExNi00NmEzLWFmZTQtYTZhYTRlNjJjODhmXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "The Lord of the Rings",
-//     Year: "1978",
-//     imdbID: "tt0077869",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BOGMyNWJhZmYtNGQxYi00Y2ZjLWJmNjktNTgzZWJjOTg4YjM3L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "Lord of the Flies",
-//     Year: "1990",
-//     imdbID: "tt0100054",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BOTI2NTQyODk0M15BMl5BanBnXkFtZTcwNTQ3NDk0NA@@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "The Lords of Salem",
-//     Year: "2012",
-//     imdbID: "tt1731697",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BMjA2NTc5Njc4MV5BMl5BanBnXkFtZTcwNTYzMTcwOQ@@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "Greystoke: The Legend of Tarzan, Lord of the Apes",
-//     Year: "1984",
-//     imdbID: "tt0087365",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BMTM5MzcwOTg4MF5BMl5BanBnXkFtZTgwOTQwMzQxMDE@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "Lord of the Flies",
-//     Year: "1963",
-//     imdbID: "tt0057261",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BOGEwYTlhMTgtODBlNC00ZjgzLTk1ZmEtNmNkMTEwYTZiM2Y0XkEyXkFqcGdeQXVyMzU4Nzk4MDI@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "The Avengers",
-//     Year: "2012",
-//     imdbID: "tt0848228",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "Avengers: Infinity War",
-//     Year: "2018",
-//     imdbID: "tt4154756",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "Avengers: Age of Ultron",
-//     Year: "2015",
-//     imdbID: "tt2395427",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
-//   },
-//   {
-//     Title: "Avengers: Endgame",
-//     Year: "2019",
-//     imdbID: "tt4154796",
-//     Type: "movie",
-//     Poster:
-//       "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg",
-//   },
-// ];
+console.log(isItPrime(7));
